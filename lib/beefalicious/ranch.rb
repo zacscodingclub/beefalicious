@@ -13,6 +13,10 @@ class Ranch
     set_attributes(attributes)
 
     @@all << self
+
+    File.open('./tmp/results.txt', 'a') do |f|
+      f << self.to_s
+    end
   end
 
   def set_attributes(attributes)
@@ -27,7 +31,7 @@ class Ranch
     @@all
   end
 
-  def self.to_csv
-
+  def to_s
+    "#{name}, #{contact_name}, #{contact_phone}, #{address}, #{website}, #{facebook}, #{url}\n"
   end
 end
